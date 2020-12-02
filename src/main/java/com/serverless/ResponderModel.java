@@ -99,15 +99,14 @@ public class ResponderModel {
     }
 
     public boolean isPrime(Integer num){
+
         boolean flag = false;
-        Integer i = 2;
-        while (i <= num / 2) {
+        for (int i = 2; i <= num / 2; ++i) {
+
             if (num % i == 0) {
                 flag = true;
                 break;
             }
-
-            ++i;
         }
         return flag;
     }

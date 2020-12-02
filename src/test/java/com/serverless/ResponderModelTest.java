@@ -111,17 +111,20 @@ public class ResponderModelTest {
     }
 
     @Test
-    public void cuandoLaPreguntaEsSi7y2SonPrimosLaRespuestaEs7 () {
+    public void cuandoLaPreguntaEsSiTieneCuboORaizCuadrada276y1849LaRespuestaEs1849 () {
         //arrange
-        String pregunta = "which of the following numbers are primes: 7, 15";
+        String pregunta = "which of the following numbers is both a square and a cube: 276, 1849";
 
         //act
         String respuesta = responder.answer(pregunta);
 
         //assert
-        assertThat(respuesta).isEqualTo("7");
+        assertThat(respuesta).isEqualTo("1849");
 
     }
+
+
+
 
     @Test
     public void cuandoLaPreguntaEsEnQueAnioTheresaMaySalioElegidaLaRespuestaEs2016 () {
