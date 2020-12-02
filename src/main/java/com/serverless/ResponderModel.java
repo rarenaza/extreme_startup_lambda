@@ -27,6 +27,11 @@ public class ResponderModel {
             return teamName;
         }
 
+        Matcher theresaMayMatcher = Pattern.compile(".*which year was Theresa May first elected as the Prime Minister of Great Britain").matcher(question);
+        if (theresaMayMatcher.matches()) {
+            return "2016";
+        }
+
         Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
         if (sumMatcher.matches()) {
             return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
@@ -68,6 +73,15 @@ public class ResponderModel {
             return String.valueOf( number1*number2);
         }
 
+        Matcher primeMatcher = Pattern.compile(".*which of the following numbers are primes: (\\d+), (\\d+)").matcher(question);
+        if (primeMatcher.matches()) {
+            number1 = Integer.parseInt(primeMatcher.group(1));
+            number2 = Integer.parseInt(primeMatcher.group(2));
+
+            return String.valueOf(isPrime(number1) ? number1 : number2);
+        }
+
+
         Matcher compareSquareCubeMatcher = Pattern.compile(".*which of the following numbers is both a square and a cube: (\\d+), (\\d+)").matcher(question);
         if (compareSquareCubeMatcher.matches()) {
             number1 = Integer.parseInt(compareSquareCubeMatcher.group(1));
@@ -82,5 +96,19 @@ public class ResponderModel {
             return String.valueOf(((number1sqr % 1 == 0) && (number1cube % 1 == 0)) ? number1 : number2);
         }
         return teamName;
+    }
+
+    public boolean isPrime(Integer num){
+        boolean flag = false;
+        Integer i = 2;
+        while (i <= num / 2) {
+            if (num % i == 0) {
+                flag = true;
+                break;
+            }
+
+            ++i;
+        }
+        return flag;
     }
 }

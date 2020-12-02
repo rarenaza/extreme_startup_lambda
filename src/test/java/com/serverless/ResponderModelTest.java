@@ -109,4 +109,30 @@ public class ResponderModelTest {
         assertThat(respuesta).isEqualTo("25");
 
     }
+
+    @Test
+    public void cuandoLaPreguntaEsSi7y2SonPrimosLaRespuestaEs7 () {
+        //arrange
+        String pregunta = "which of the following numbers are primes: 7, 15";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("7");
+
+    }
+
+    @Test
+    public void cuandoLaPreguntaEsEnQueAnioTheresaMaySalioElegidaLaRespuestaEs2016 () {
+        //arrange
+        String pregunta = "which year was Theresa May first elected as the Prime Minister of Great Britain";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("2016");
+
+    }
 }
