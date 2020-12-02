@@ -70,4 +70,17 @@ public class ResponderModelTest {
         assertThat(respuesta).isEqualTo("peru");
 
     }
+
+    @Test
+    public void cuandoLaPreguntaEsObtenerElMayorEntre263_9_871_36LaRespuestaEs871 () {
+        //arrange
+        String pregunta = "which of the following numbers is the largest: 263, 9, 871, 36";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("871");
+
+    }
 }
