@@ -57,4 +57,17 @@ public class ResponderModelTest {
         assertThat(respuesta).isEqualTo("870");
 
     }
+
+    @Test
+    public void cuandoLaPreguntaEsPorElNombreRespondePeru () {
+        //arrange
+        String pregunta = "what is your name";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("peru");
+
+    }
 }

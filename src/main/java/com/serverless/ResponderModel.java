@@ -14,6 +14,11 @@ public class ResponderModel {
         Integer number1;
         Integer number2;
 
+        Matcher nameMatcher = Pattern.compile(".*what is your name").matcher(question);
+        if (nameMatcher.matches()) {
+            return teamName;
+        }
+
         Matcher sumMatcher = Pattern.compile(".*what is the sum of (\\d+) and (\\d+)").matcher(question);
         if (sumMatcher.matches()) {
             return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
