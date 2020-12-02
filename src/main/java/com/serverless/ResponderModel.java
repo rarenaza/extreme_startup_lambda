@@ -54,6 +54,14 @@ public class ResponderModel {
             number2 = Integer.parseInt(compareMatcher.group(2));
             return String.valueOf( number1>number2 ? number1 : number2);
         }
+
+        Matcher compareMultipliedMatcher = Pattern.compile(".*what is (\\d+) multiplied by (\\d+)").matcher(question);
+        if (compareMultipliedMatcher.matches()) {
+            number1 = Integer.parseInt(compareMultipliedMatcher.group(1));
+            number2 = Integer.parseInt(compareMultipliedMatcher.group(2));
+            return String.valueOf( number1*number2);
+        }
+
         return teamName;
     }
 

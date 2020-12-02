@@ -83,4 +83,17 @@ public class ResponderModelTest {
         assertThat(respuesta).isEqualTo("871");
 
     }
+
+    @Test
+    public void cuandoLaPreguntaEsMultiplicar10y18LaRespuestaEs180 () {
+        //arrange
+        String pregunta = "what is 10 multiplied by 18";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("180");
+
+    }
 }
