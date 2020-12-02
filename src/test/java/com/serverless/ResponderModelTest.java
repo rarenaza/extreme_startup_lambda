@@ -96,4 +96,17 @@ public class ResponderModelTest {
         assertThat(respuesta).isEqualTo("180");
 
     }
+
+    @Test
+    public void cuandoLaPreguntaEsSiTieneCuboORaizCuadrada530y25LaRespuestaEs25 () {
+        //arrange
+        String pregunta = "which of the following numbers is both a square and a cube: 530, 25";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("25");
+
+    }
 }

@@ -16,6 +16,12 @@ public class ResponderModel {
         Integer number3;
         Integer number4;
 
+        Double number1sqr;
+        Double number2sqr;
+
+        Double number1cube;
+        Double number2ube;
+
         Matcher nameMatcher = Pattern.compile(".*what is your name").matcher(question);
         if (nameMatcher.matches()) {
             return teamName;
@@ -62,7 +68,19 @@ public class ResponderModel {
             return String.valueOf( number1*number2);
         }
 
+        Matcher compareSquareCubeMatcher = Pattern.compile(".*which of the following numbers is both a square and a cube: (\\d+), (\\d+)").matcher(question);
+        if (compareSquareCubeMatcher.matches()) {
+            number1 = Integer.parseInt(compareSquareCubeMatcher.group(1));
+            number2 = Integer.parseInt(compareSquareCubeMatcher.group(2));
+
+            number1sqr = Math.sqrt(number1);
+            number2sqr = Math.sqrt(number2);
+
+            number1cube = Math.cbrt(number1);
+            number2ube = Math.cbrt(number2);
+
+            return String.valueOf(((number1sqr % 1 == 0) && (number1cube % 1 == 0)) ? number1 : number2);
+        }
         return teamName;
     }
-
 }
