@@ -33,6 +33,19 @@ public class ResponderModelTest {
     }
 
     @Test
+    public void cuandoLaPreguntaSumaPlus15y2Responde17 () {
+        //arrange
+        String pregunta = "what is 15 plus 2";
+
+        //act
+        String respuesta = responder.answer(pregunta);
+
+        //assert
+        assertThat(respuesta).isEqualTo("17");
+
+    }
+
+    @Test
     public void cuandoLaPreguntaCompara80y870Responde870 () {
         //arrange
         String pregunta = "which of the following numbers is the largest: 80, 870";

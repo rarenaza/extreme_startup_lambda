@@ -19,6 +19,11 @@ public class ResponderModel {
             return String.valueOf(Integer.parseInt(sumMatcher.group(1)) + Integer.parseInt(sumMatcher.group(2)));
         }
 
+        Matcher sumPlusMatcher = Pattern.compile(".*what is (\\d+) plus (\\d+)").matcher(question);
+        if (sumPlusMatcher.matches()) {
+            return String.valueOf(Integer.parseInt(sumPlusMatcher.group(1)) + Integer.parseInt(sumPlusMatcher.group(2)));
+        }
+
         Matcher compareMatcher = Pattern.compile(".*which of the following numbers is the largest: (\\d+), (\\d+)").matcher(question);
         if (compareMatcher.matches()) {
             number1 = Integer.parseInt(compareMatcher.group(1));
